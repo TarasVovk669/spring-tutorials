@@ -1,11 +1,14 @@
 package ua.example.springredis.service.impl;
 
+import org.springframework.stereotype.Service;
 import ua.example.springredis.model.Author;
 import ua.example.springredis.repository.AuthorRepository;
 import ua.example.springredis.service.AuthorService;
 
+import java.util.HashSet;
 import java.util.Set;
 
+@Service
 public class AuthorServiceImpl implements AuthorService {
 
 
@@ -22,11 +25,18 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public Set<Author> getAll() {
-        return null;//authorRepository.findAll().;
+        Set<Author> authors = new HashSet<>();
+        authorRepository.findAll().forEach(authors::add);
+        return authors;
     }
 
     @Override
     public void deleteAuthor(Long id) {
         authorRepository.deleteById(id);
+    }
+
+    @Override
+    public Author save(Author author) {
+        return authorRepository.save(author);
     }
 }
