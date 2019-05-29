@@ -1,6 +1,5 @@
 package ua.example.springredis.service;
 
-import org.springframework.stereotype.Service;
 import ua.example.springredis.model.Author;
 
 import java.util.Set;
@@ -9,10 +8,13 @@ public interface AuthorService {
 
     Author getAuthor(String id);
 
-    Set<Author> getAll();
+    Set<Author> getAuthors();
 
-    void deleteAuthor(String id);
+    void delete(String id);
 
     Author save(Author author);
+
+    Author update(Author author);
+
 
 }
