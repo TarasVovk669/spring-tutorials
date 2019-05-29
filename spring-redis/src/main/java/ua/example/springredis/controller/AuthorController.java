@@ -20,7 +20,7 @@ public class AuthorController {
     }
 
     @GetMapping(value = "/authors/{id}")
-    public ResponseEntity<Author> getAuthor(@PathVariable("id") Long id) {
+    public ResponseEntity<Author> getAuthor(@PathVariable("id") String id) {
         Author author = authorService.getAuthor(id);
         return new ResponseEntity<>(author, HttpStatus.FOUND);
     }
@@ -39,7 +39,7 @@ public class AuthorController {
     }
 
     @DeleteMapping(value = "/authors/{id}")
-    public ResponseEntity<Long> deleteAuthor(@PathVariable("id") Long id) {
+    public ResponseEntity<String> deleteAuthor(@PathVariable("id") String id) {
         authorService.deleteAuthor(id);
         return new ResponseEntity<>(id, HttpStatus.OK);
     }

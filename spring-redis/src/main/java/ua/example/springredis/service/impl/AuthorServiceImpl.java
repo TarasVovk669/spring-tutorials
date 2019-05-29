@@ -19,7 +19,7 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public Author getAuthor(Long id) {
+    public Author getAuthor(String id) {
         return authorRepository.findById(id).get();
     }
 
@@ -31,7 +31,7 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public void deleteAuthor(Long id) {
+    public void deleteAuthor(String id) {
         authorRepository.deleteById(id);
     }
 

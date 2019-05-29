@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import ua.example.springredis.model.Author;
 
 @Repository
-public interface AuthorRepository extends CrudRepository<Author, Long> {
+public interface AuthorRepository extends CrudRepository<Author, String> {
 
 }

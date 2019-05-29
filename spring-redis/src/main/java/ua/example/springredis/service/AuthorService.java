@@ -7,11 +7,11 @@ import java.util.Set;
 
 public interface AuthorService {
 
-    Author getAuthor(Long id);
+    Author getAuthor(String id);
 
     Set<Author> getAll();
 
-    void deleteAuthor(Long id);
+    void deleteAuthor(String id);
 
     Author save(Author author);
 

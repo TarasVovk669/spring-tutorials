@@ -1,5 +1,6 @@
 package ua.example.springredis.model;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 
 import java.io.Serializable;
@@ -7,18 +8,19 @@ import java.io.Serializable;
 @RedisHash("Author")
 public class Author implements Serializable {
 
-    private Long id;
+    @Id
+    private String id;
     private String name;
     private Long age;
     private Double rating;
     private Gender sex;
 
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
