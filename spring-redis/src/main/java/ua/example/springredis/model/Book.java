@@ -5,19 +5,14 @@ import org.springframework.data.redis.core.RedisHash;
 import org.springframework.data.redis.core.index.Indexed;
 
 import java.io.Serializable;
-import java.util.List;
 
-@RedisHash("Author")
-public class Author implements Serializable {
+@RedisHash("books")
+public class Book implements Serializable {
 
-    @Id
-    private String id;
+    @Id private String id;
     private String name;
-    private Long age;
     private Double rating;
-    private Gender sex;
-    @Indexed private List<Book> books;
-
+    @Indexed private String author_id;
 
     public String getId() {
         return id;
@@ -35,14 +30,6 @@ public class Author implements Serializable {
         this.name = name;
     }
 
-    public Long getAge() {
-        return age;
-    }
-
-    public void setAge(Long age) {
-        this.age = age;
-    }
-
     public Double getRating() {
         return rating;
     }
@@ -51,25 +38,11 @@ public class Author implements Serializable {
         this.rating = rating;
     }
 
-    public Gender getSex() {
-        return sex;
+    public String getAuthor_id() {
+        return author_id;
     }
 
-    public void setSex(Gender sex) {
-        this.sex = sex;
+    public void setAuthor_id(String author_id) {
+        this.author_id = author_id;
     }
-
-    public List<Book> getBooks() {
-        return books;
-    }
-
-    public void setBooks(List<Book> books) {
-        this.books = books;
-    }
-
-    public enum Gender {
-        MALE, FEMALE
-    }
-
-
 }
