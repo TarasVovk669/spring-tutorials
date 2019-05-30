@@ -1,15 +1,14 @@
 package ua.example.springredis.model;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 import org.springframework.data.redis.core.index.Indexed;
 
 import java.io.Serializable;
 
-@RedisHash("books")
+@RedisHash("Book")
 public class Book implements Serializable {
 
-    @Id private String id;
+    @Indexed private String id;
     private String name;
     private Double rating;
     @Indexed private String author_id;

@@ -1,6 +1,7 @@
 package ua.example.springredis.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Reference;
 import org.springframework.data.redis.core.RedisHash;
 import org.springframework.data.redis.core.index.Indexed;
 
@@ -16,7 +17,7 @@ public class Author implements Serializable {
     private Long age;
     private Double rating;
     private Gender sex;
-    @Indexed private List<Book> books;
+    private List<Book> books;
 
 
     public String getId() {
