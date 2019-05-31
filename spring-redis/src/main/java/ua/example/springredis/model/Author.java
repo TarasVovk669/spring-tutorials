@@ -1,12 +1,12 @@
 package ua.example.springredis.model;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Reference;
 import org.springframework.data.redis.core.RedisHash;
-import org.springframework.data.redis.core.index.Indexed;
 
 import java.io.Serializable;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 @RedisHash("Author")
 public class Author implements Serializable {
@@ -17,7 +17,7 @@ public class Author implements Serializable {
     private Long age;
     private Double rating;
     private Gender sex;
-    private List<Book> books;
+    private Set<Book> books = new LinkedHashSet<>();
 
 
     public String getId() {
@@ -60,11 +60,11 @@ public class Author implements Serializable {
         this.sex = sex;
     }
 
-    public List<Book> getBooks() {
+    public Set<Book> getBooks() {
         return books;
     }
 
-    public void setBooks(List<Book> books) {
+    public void setBooks(Set<Book> books) {
         this.books = books;
     }
 

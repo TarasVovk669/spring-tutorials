@@ -11,6 +11,7 @@ import ua.example.springredis.service.AuthorService;
 import ua.example.springredis.service.BookService;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Service
@@ -51,5 +52,12 @@ public class BookServiceImpl implements BookService {
     @Override
     public Book update(Book book) {
         return redisKVTemplate.update(book);
+    }
+
+    @Override
+    public Set<Book> saveList(Set<Book> books) {
+        Set<Book> booksNew = new LinkedHashSet<>();
+        books.forEach( book -> booksNew.add(bookRepository.save(book)));
+        return booksNew;
     }
 }

@@ -16,5 +16,5 @@ public interface BookService {
 
     Book update(Book book);
 
-
+    Set<Book> saveList(Set<Book> books);
 }
