@@ -5,7 +5,7 @@ import org.springframework.data.redis.core.RedisHash;
 
 import java.io.Serializable;
 import java.util.LinkedHashSet;
-import java.util.List;
+
 import java.util.Set;
 
 @RedisHash("Author")
