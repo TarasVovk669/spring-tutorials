@@ -1,5 +1,0 @@
-type Document {
-    id              : Long!
-    documentType    : String!
-    documentPath    : String!
-}

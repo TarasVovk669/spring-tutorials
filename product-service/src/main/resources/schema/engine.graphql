@@ -1,7 +1,0 @@
-type Engine {
-    id          : Long!
-    description : String
-    horsePower  : NonNegativeInt!
-    torque      : NonNegativeInt!
-    capacityCc  : NonNegativeInt!
-}
