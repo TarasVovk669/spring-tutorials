@@ -1,0 +1,8 @@
+type Manufacturer @connection
+{
+    id              : Long!
+    name            : String!
+    originCountry   : String!
+    description     : String
+    series          : [Series!]
+}
