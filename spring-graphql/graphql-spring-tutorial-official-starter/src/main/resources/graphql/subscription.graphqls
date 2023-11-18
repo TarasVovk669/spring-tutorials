@@ -1,0 +1,4 @@
+type Subscription{
+    bankAccountsSub: BankAccount!
+    bankAccountSub(id: ID!): BankAccount!
+}

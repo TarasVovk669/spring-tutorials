@@ -1,0 +1,55 @@
+type BankAccount{
+    id: ID!
+    client: Client!
+    currency: Currency
+    assets: [Assets!]!
+    balance: Balance
+}
+
+type Client {
+    id: ID!
+    fistName: String!
+    lastName: String!
+    age: NonNegativeInt
+    birthdate: DateTime
+}
+
+type Balance {
+    id: ID!
+    amount: Float
+}
+
+type Assets{
+    id:ID!
+    name: String!
+}
+
+input LoginInput{
+    email: String!
+    password: String!
+}
+
+type User{
+    id: ID!
+    email: String!
+    password: String!
+    fullName: String!
+    isActive: Boolean
+    roles: [Role!]!
+}
+
+type JwtUserResponse{
+    accessToken: ID!
+    email: String!
+    expirationDate: DateTime!
+    isActive: Boolean
+    roles: [String!]!
+}
+
+enum Role {
+    COMMON,ADMIN
+}
+
+enum Currency {
+   UAH,USD,EUR
+}

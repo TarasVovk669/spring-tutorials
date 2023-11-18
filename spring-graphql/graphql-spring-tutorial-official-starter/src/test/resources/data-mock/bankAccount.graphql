@@ -1,0 +1,15 @@
+query SUPER_BANK {
+    bankAccountSelectionSet(id: 464377411439439825) {
+        id
+        currency
+        client {
+            id
+            fistName
+            lastName
+        }
+        assets {
+            id
+            name
+        }
+    }
+}
