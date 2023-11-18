@@ -1,7 +1,6 @@
 package com.graphql.tutorial.graphqlspringtutorialofficialstarter;
 
 import com.graphql.spring.boot.test.GraphQLTestTemplate;
-import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.json.JSONException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

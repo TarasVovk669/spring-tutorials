@@ -1,7 +1,6 @@
 package com.graphql.tutorial.graphqlspringtutorialofficialstarter.resolver;
 
 import com.graphql.tutorial.graphqlspringtutorialofficialstarter.domain.bank.BankAccount;
-
 import graphql.execution.DataFetcherResult;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import graphql.relay.*;

@@ -1,13 +1,11 @@
 package com.graphql.tutorial.graphqlspringtutorialofficialstarter.listeners;
 
 import graphql.kickstart.servlet.core.GraphQLServletListener;
-import graphql.parser.antlr.GraphqlListener;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import java.time.Duration;
 import java.time.LocalDateTime;
 
 @Slf4j

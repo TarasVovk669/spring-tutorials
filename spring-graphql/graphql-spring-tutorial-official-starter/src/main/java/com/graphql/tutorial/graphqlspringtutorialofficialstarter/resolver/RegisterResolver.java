@@ -1,14 +1,11 @@
 package com.graphql.tutorial.graphqlspringtutorialofficialstarter.resolver;
 
 import com.graphql.tutorial.graphqlspringtutorialofficialstarter.domain.bank.User;
-import com.graphql.tutorial.graphqlspringtutorialofficialstarter.resolver.input.LoginInput;
 import com.graphql.tutorial.graphqlspringtutorialofficialstarter.resolver.input.RegisterInput;
 import graphql.kickstart.tools.GraphQLMutationResolver;
-import graphql.kickstart.tools.GraphQLQueryResolver;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import java.util.Optional;
 import java.util.Random;
 
 import static com.graphql.tutorial.graphqlspringtutorialofficialstarter.configuration.StoreData.USERS;

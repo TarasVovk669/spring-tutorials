@@ -1,18 +1,16 @@
 package com.graphql.tutorial.graphqlspringtutorialofficialstarter.configuration.security.account.details;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.graphql.tutorial.graphqlspringtutorialofficialstarter.domain.bank.User;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @Data
 @AllArgsConstructor

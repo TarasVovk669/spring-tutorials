@@ -2,7 +2,6 @@ package com.graphql.tutorial.graphqlspringtutorialofficialstarter.resolver;
 
 import com.graphql.tutorial.graphqlspringtutorialofficialstarter.domain.bank.Balance;
 import com.graphql.tutorial.graphqlspringtutorialofficialstarter.domain.bank.BankAccount;
-import com.graphql.tutorial.graphqlspringtutorialofficialstarter.domain.bank.Client;
 import graphql.kickstart.tools.GraphQLResolver;
 import graphql.schema.DataFetchingEnvironment;
 import lombok.extern.slf4j.Slf4j;
@@ -12,8 +11,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
-
-import static com.graphql.tutorial.graphqlspringtutorialofficialstarter.configuration.StoreData.CLIENT_ACCOUNTS;
 
 @Slf4j
 @Component

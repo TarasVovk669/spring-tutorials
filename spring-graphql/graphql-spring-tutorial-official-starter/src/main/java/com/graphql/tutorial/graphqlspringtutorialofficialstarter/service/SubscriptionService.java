@@ -1,7 +1,6 @@
 package com.graphql.tutorial.graphqlspringtutorialofficialstarter.service;
 
 import com.graphql.tutorial.graphqlspringtutorialofficialstarter.domain.bank.BankAccount;
-
 import lombok.extern.slf4j.Slf4j;
 import org.reactivestreams.Publisher;
 import org.springframework.stereotype.Service;

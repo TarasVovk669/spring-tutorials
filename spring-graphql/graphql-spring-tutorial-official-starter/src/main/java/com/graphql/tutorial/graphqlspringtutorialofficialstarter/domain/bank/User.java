@@ -2,7 +2,6 @@ package com.graphql.tutorial.graphqlspringtutorialofficialstarter.domain.bank;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.List;
 

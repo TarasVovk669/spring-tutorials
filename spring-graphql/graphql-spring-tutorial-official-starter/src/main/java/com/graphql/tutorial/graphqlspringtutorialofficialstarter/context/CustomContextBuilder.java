@@ -4,7 +4,6 @@ package com.graphql.tutorial.graphqlspringtutorialofficialstarter.context;
 import com.graphql.tutorial.graphqlspringtutorialofficialstarter.dataloader.BalanceDataLoader;
 import graphql.kickstart.execution.context.DefaultGraphQLContext;
 import graphql.kickstart.execution.context.GraphQLKickstartContext;
-import graphql.kickstart.servlet.context.DefaultGraphQLWebSocketContext;
 import graphql.kickstart.servlet.context.GraphQLServletContextBuilder;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

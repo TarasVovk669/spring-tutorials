@@ -2,9 +2,7 @@ package com.graphql.tutorial.graphqlspringtutorialofficialstarter.domain.bank;
 
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.cglib.core.Local;
 
-import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 
 

@@ -1,6 +1,9 @@
 package com.graphql.tutorial.graphqlspringtutorialofficialstarter.resolver;
 
-import com.graphql.tutorial.graphqlspringtutorialofficialstarter.domain.bank.*;
+import com.graphql.tutorial.graphqlspringtutorialofficialstarter.domain.bank.Assets;
+import com.graphql.tutorial.graphqlspringtutorialofficialstarter.domain.bank.Balance;
+import com.graphql.tutorial.graphqlspringtutorialofficialstarter.domain.bank.BankAccount;
+import com.graphql.tutorial.graphqlspringtutorialofficialstarter.domain.bank.Client;
 import com.graphql.tutorial.graphqlspringtutorialofficialstarter.resolver.input.CreateBankAccount;
 import com.graphql.tutorial.graphqlspringtutorialofficialstarter.service.SubscriptionService;
 import graphql.kickstart.tools.GraphQLMutationResolver;
