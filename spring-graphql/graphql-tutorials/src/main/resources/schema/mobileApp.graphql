@@ -1,0 +1,31 @@
+type MobileApp{
+    name: String!
+    version: String
+    platform: [String]
+    author: Author
+    appId: ID!
+    releaseDate: Date
+    download: NonNegativeInt
+    homepage: Url
+    category: MobileAppCategory
+}
+
+input MobileAppFilter{
+    name:String
+    version:String
+    platform:String
+    author: AuthorFilter
+    releasedAfter: Date
+    minDownload: NonNegativeInt
+    category: MobileAppCategory
+
+}
+
+enum MobileAppCategory{
+    GAME,PROD,FINANCE,EDUCATION
+}
+
+input AuthorFilter{
+    name: String
+
+}
