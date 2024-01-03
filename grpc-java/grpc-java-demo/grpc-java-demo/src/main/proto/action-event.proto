@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+option java_package="com.grpc.demo.gen";
+option java_multiple_files = true;
+
+message ActionEventRequest{
+  ActionType type = 1;
+  string currentPage=2;
+  string prevPage=3;
+}
+
+message ActionEventResponse{
+  bool allow =  1;
+  int64 id = 2;
+  int64 timeProcess = 3;
+}
+
+message ActionEventAggregateResponse{
+  map<string,int64> actions = 1;
+  repeated HistoryFlow historyFlow= 2;
+
+}
+
+message HistoryFlow{
+  int32 order=1;
+  string page=2;
+}
+
+enum ActionType{
+  NON=0;
+  BUTTON=1;
+  LINK=2;
+  TEXT=3;
+}
+
+service ActionService{
+  rpc actions(stream ActionEventRequest) returns (ActionEventAggregateResponse); //rpc client-streaming
+  rpc actionsStream(stream ActionEventRequest) returns (stream ActionEventResponse); //rpc bi-di-streaming
+
+}

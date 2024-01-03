@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option java_package="com.grpc.demo.gen";
+option java_multiple_files = true;
+
+message Address{
+  string city =1;
+  string street = 2;
+  int64 numberStreet = 3;
+}
+
+message Car{
+  string name = 1;
+  string model = 2;
+  string color = 3;
+}
+
+message Person{
+  int64 id = 1;
+  string name = 2;
+  Address address = 3;
+  repeated Car car = 4;
+}
+
+message Dealer{
+  bool isA=4;
+  bytes photo=5;
+  string name = 1;
+  map<int64, Car> cars = 2;
+  Priority priority = 3;
+}
+
+enum Priority{
+  LOW=0; //default value
+  MEDIUM=1;
+  HIGHT=2;
+}

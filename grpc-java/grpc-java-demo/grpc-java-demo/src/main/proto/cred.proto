@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_package="com.grpc.demo.gen";
+option java_multiple_files = true;
+
+message EmailCred{
+  string email=1;
+  string password=2;
+}
+
+message PhoneCred{
+  string phone=1;
+  string pass=2;
+}
+
+message Cred{
+  oneof mode{
+    EmailCred emailCred = 1;
+    PhoneCred phoneCred = 2;
+  }
+}

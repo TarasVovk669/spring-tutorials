@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_package="com.grpc.demo.gen";
+option java_multiple_files = true;
+
+message HeroRequest{
+  int64 gameId =1;
+  int64 heroId = 2;
+}
+
+message HeroResponse{
+  oneof hero{
+    GameContinue continue = 1;
+    GameFinished finished = 2;
+  }
+}
+
+message GameContinue{
+  int64 gameId = 1;
+  int64 heroId = 2;
+  int64 position = 3;
+  int32 numberOfMove = 4;
+}
+
+message GameFinished{
+  int64 winnerId = 1;
+  int64 winnerPosition = 2;
+  int64 looserId = 3;
+  int64 looserPosition = 4;
+}
+
+service GameService{
+  rpc game(stream HeroRequest) returns (stream HeroResponse);
+
+}

@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option java_package="com.grpc.demo.gen";
+option java_multiple_files = true;
+
+
+message BalanceRequest{
+  int64 accountNumber = 1;
+  double amount = 2;
+  Operation operation = 3;
+
+}
+
+message Balance{
+  double balance=1;
+  Currency currency=2;
+}
+
+enum Currency{
+  USD=0;
+  EUR=1;
+  JPY=2;
+}
+enum Operation{
+  EMP=0;
+  ADD=1;
+  EXT=2;
+}
+
+message BalanceResponseList{
+  repeated Balance balanceList= 1;
+}
+
+message EmptyRequest{}
+
+service BankService{
+  rpc getBalance(BalanceRequest) returns (Balance);
+  rpc manageBalance(BalanceRequest) returns (Balance);
+  rpc getAllBalance(EmptyRequest) returns (BalanceResponseList);
+
+  //server side streaming
+  rpc manageBalanceStream(BalanceRequest) returns (stream Balance);
+}
