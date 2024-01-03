@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+option java_package="com.grpc.demo.gen";
+option java_multiple_files = true;
+
+message SimpleRequest{
+  int32 action=1;
+}
+
+message SimpleResponse{
+  string statusCode=1;
+}
+
+message ErrorResponse{
+  string errorMessage=1;
+  Error error = 2;
+}
+
+message SimpleOneOfResponse{
+  oneof status {
+    string statusCode=1;
+    ErrorResponse error=2;
+  }
+
+}
+
+enum Error{ //my custom codes
+  DEFAULT=0;
+  NOT_FOUND=1;
+  CONFLICT=2;
+  VALIDATION=3;
+  INTERNAL=4;
+}
+
+service ErrorService{
+  rpc doAction(SimpleRequest) returns (SimpleResponse);
+  rpc doActionWithOneOf(SimpleRequest) returns (SimpleOneOfResponse);
+}
