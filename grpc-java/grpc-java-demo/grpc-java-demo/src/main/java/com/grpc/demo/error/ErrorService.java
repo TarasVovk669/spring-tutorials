@@ -1,7 +1,7 @@
 package com.grpc.demo.error;
 
-import com.grpc.demo.gen.*;
 import com.grpc.demo.gen.Error;
+import com.grpc.demo.gen.*;
 import io.grpc.Metadata;
 import io.grpc.Status;
 import io.grpc.protobuf.ProtoUtils;

@@ -1,18 +1,11 @@
 package com.grpc.demo.service.stream;
 
-import com.grpc.demo.gen.ActionEventAggregateResponse;
 import com.grpc.demo.gen.ActionEventRequest;
 import com.grpc.demo.gen.ActionEventResponse;
-import com.grpc.demo.gen.HistoryFlow;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 
 import java.security.SecureRandom;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
 public class ActionEventBiDiStreamRequest implements StreamObserver<ActionEventRequest> {
 

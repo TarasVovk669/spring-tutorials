@@ -7,9 +7,11 @@ import com.grpc.demo.gen.HeroResponse;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.stream.Collectors;
 
 import static com.grpc.demo.snakesladdergame.Const.GAMES_MAP;
 import static com.grpc.demo.snakesladdergame.Const.MOVEMENT_MAP;

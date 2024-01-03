@@ -1,8 +1,5 @@
 package com.grpc.demo.error;
 
-import com.grpc.demo.service.ActionService;
-import com.grpc.demo.service.BankService;
-import com.grpc.demo.snakesladdergame.GameService;
 import io.grpc.ServerBuilder;
 
 import java.io.IOException;

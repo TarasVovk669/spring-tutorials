@@ -1,7 +1,6 @@
 package com.grpc.demo.ssl;
 
 import com.grpc.demo.error.ErrorService;
-
 import io.grpc.netty.shaded.io.grpc.netty.GrpcSslContexts;
 import io.grpc.netty.shaded.io.grpc.netty.NettyServerBuilder;
 import io.grpc.netty.shaded.io.netty.handler.ssl.SslContext;
