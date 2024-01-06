@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    hikari:
+      jdbc-url: jdbc:h2:mem:movie-db
+      username: sa
+      password:
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  sql:
+    init:
+      mode: always
+grpc:
+  server:
+    security:
+      enabled: true
+      certificate-chain: file:/Users/tarasvovk/IdeaProjects/tutorials/spring-tutorials/spring-tutorials/grpc-java/grpc-java-demo/additional-files/cert/localhost.crt
+      private-key: file:/Users/tarasvovk/IdeaProjects/tutorials/spring-tutorials/spring-tutorials/grpc-java/grpc-java-demo/additional-files/cert/localhost.pem
+    port: 8082

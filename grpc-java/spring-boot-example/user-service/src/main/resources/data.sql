@@ -1,0 +1,2 @@
+INSERT into c_users (id,first_name,last_name,birthdate,genre) values (1,'Taras','Taras',now(),'ACTION');
+INSERT into c_users (id,first_name,last_name,birthdate,genre) values (2,'Ivan','Ivan',now(),'WESTERN');

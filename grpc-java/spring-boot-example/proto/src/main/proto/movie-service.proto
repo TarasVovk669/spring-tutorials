@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package movie;
+
+option java_multiple_files = true;
+option java_package = "com.grpc.example.movie";
+import "google/protobuf/timestamp.proto";
+import "common/common.proto";
+
+
+message MovieDto{
+  string title = 1;
+  google.protobuf.Timestamp releaseDate = 2;
+  double rating = 3;
+}
+
+message MovieSearchRequest{
+  common.Genre genre = 1;
+}
+
+message MovieSearchResponse{
+  repeated MovieDto movies = 1;
+}
+
+service MovieService{
+  rpc getMovies(MovieSearchRequest) returns (MovieSearchResponse);
+}

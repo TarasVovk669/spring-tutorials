@@ -1,0 +1,12 @@
+server:
+  port: 8085
+grpc:
+  client:
+    user-service:
+      address: static://localhost:8081
+      negotiation-type: plaintext
+    movie-service:
+      address: static://localhost:8082
+      negotiation-type: TLS
+      security:
+        trustCertCollection: file:/Users/tarasvovk/IdeaProjects/tutorials/spring-tutorials/spring-tutorials/grpc-java/grpc-java-demo/additional-files/cert/ca.cert.pem
