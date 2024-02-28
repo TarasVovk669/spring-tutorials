@@ -1,3 +1,4 @@
+/*
 package com.demo.security.springsecuritydemo.custom_filter;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,7 +16,7 @@ public class HexAuthConverter implements AuthenticationConverter {
     public Authentication convert(HttpServletRequest request) {
         final var auth = request.getHeader(AUTHORIZATION);
 
-        if(auth != null && auth.startsWith("Hex")){
+        if (auth != null && auth.startsWith("Hex")) {
             final var rawToken = auth.replaceAll("^Hex ", "");
             final var token = new String(Hex.decode(rawToken), StandardCharsets.UTF_8);
             final var tokenParts = token.split(":");
@@ -28,3 +29,4 @@ public class HexAuthConverter implements AuthenticationConverter {
         return null;
     }
 }
+*/

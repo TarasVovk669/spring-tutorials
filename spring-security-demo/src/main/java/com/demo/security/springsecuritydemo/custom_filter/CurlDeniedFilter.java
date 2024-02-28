@@ -1,3 +1,4 @@
+/*
 package com.demo.security.springsecuritydemo.custom_filter;
 
 import jakarta.servlet.FilterChain;
@@ -25,3 +26,4 @@ public class CurlDeniedFilter extends OncePerRequestFilter {
         filterChain.doFilter(request,response);
     }
 }
+*/

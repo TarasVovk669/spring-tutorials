@@ -28,8 +28,9 @@ public class User {
 
     private String password;
 
-
     @ElementCollection(fetch = FetchType.EAGER)
-    private List<String> authorities = List.of("USER");
+    private List<String> authorities = List.of("ROLE_MANAGER"); //ROLE_* always add
 
+    public User() {
+    }
 }

@@ -1,3 +1,4 @@
+/*
 package com.demo.security.springsecuritydemo.source_of_user;
 
 import org.springframework.context.annotation.Bean;
@@ -17,3 +18,4 @@ public class SecurityConfiguration {
                 .build();
     }
 }
+*/

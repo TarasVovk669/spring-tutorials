@@ -1,3 +1,4 @@
+/*
 package com.demo.security.springsecuritydemo.custom_filter;
 
 import org.springframework.http.HttpStatus;
@@ -38,3 +39,4 @@ public class HexConfigurer extends AbstractHttpConfigurer<HexConfigurer, HttpSec
 
 
 }
+*/

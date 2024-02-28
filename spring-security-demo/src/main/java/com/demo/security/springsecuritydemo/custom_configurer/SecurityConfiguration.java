@@ -1,3 +1,4 @@
+/*
 package com.demo.security.springsecuritydemo.custom_configurer;
 
 import org.springframework.context.annotation.Bean;
@@ -15,3 +16,4 @@ public class SecurityConfiguration {
                 .build();
     }
 }
+*/
