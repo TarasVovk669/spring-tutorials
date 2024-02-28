@@ -1,4 +1,3 @@
-/*
 package com.demo.security.springsecuritydemo.custom_configurer;
 
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -25,4 +24,3 @@ public class CustomSecurityConfigurer extends AbstractHttpConfigurer<CustomSecur
         return this;
     }
 }
-*/

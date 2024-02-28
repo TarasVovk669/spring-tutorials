@@ -1,4 +1,4 @@
-/*
+
 package com.demo.security.springsecuritydemo.custom_filter;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -29,4 +29,4 @@ public class HexAuthConverter implements AuthenticationConverter {
         return null;
     }
 }
-*/
+
