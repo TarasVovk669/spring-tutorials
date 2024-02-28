@@ -1,4 +1,4 @@
-package com.demo.security.springsecuritydemo.jwt;
+package com.demo.security.springsecuritydemo.jwt.bearer;
 
 import com.demo.security.springsecuritydemo.source_of_user.DeactivatedTokenRepository;
 import com.nimbusds.jose.JOSEException;

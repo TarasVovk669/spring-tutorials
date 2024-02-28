@@ -1,10 +1,7 @@
-package com.demo.security.springsecuritydemo.jwt;
+package com.demo.security.springsecuritydemo.jwt.bearer;
 
 import com.demo.security.springsecuritydemo.source_of_user.DeactivatedTokenRepository;
-import com.demo.security.springsecuritydemo.source_of_user.UserRepository;
-import com.demo.security.springsecuritydemo.source_of_user.UserService;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;

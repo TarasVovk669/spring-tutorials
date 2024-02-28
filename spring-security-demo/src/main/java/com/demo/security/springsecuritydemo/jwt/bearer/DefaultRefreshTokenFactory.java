@@ -1,4 +1,4 @@
-package com.demo.security.springsecuritydemo.jwt;
+package com.demo.security.springsecuritydemo.jwt.bearer;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;

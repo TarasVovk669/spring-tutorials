@@ -1,6 +1,6 @@
 package com.demo.security.springsecuritydemo;
 
-import com.demo.security.springsecuritydemo.jwt.*;
+import com.demo.security.springsecuritydemo.jwt.bearer.*;
 import com.demo.security.springsecuritydemo.source_of_user.DeactivatedTokenRepository;
 import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.crypto.DirectDecrypter;

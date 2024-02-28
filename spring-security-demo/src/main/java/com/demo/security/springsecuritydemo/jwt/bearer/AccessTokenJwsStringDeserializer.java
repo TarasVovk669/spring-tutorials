@@ -1,7 +1,6 @@
-package com.demo.security.springsecuritydemo.jwt;
+package com.demo.security.springsecuritydemo.jwt.bearer;
 
 import com.nimbusds.jose.JOSEException;
-import com.nimbusds.jose.JWSAlgorithm;
 import com.nimbusds.jose.JWSVerifier;
 import com.nimbusds.jwt.SignedJWT;
 import org.slf4j.Logger;

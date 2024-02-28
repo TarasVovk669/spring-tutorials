@@ -1,4 +1,4 @@
-package com.demo.security.springsecuritydemo.jwt;
+package com.demo.security.springsecuritydemo.jwt.bearer;
 
 import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.JWEDecrypter;

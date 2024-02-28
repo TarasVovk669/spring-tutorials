@@ -1,9 +1,8 @@
-package com.demo.security.springsecuritydemo.jwt;
+package com.demo.security.springsecuritydemo.jwt.bearer;
 
 
 import com.demo.security.springsecuritydemo.source_of_user.DeactivatedTokenRepository;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import com.demo.security.springsecuritydemo.source_of_user.UserRepository;
 import org.springframework.security.core.userdetails.AuthenticationUserDetailsService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

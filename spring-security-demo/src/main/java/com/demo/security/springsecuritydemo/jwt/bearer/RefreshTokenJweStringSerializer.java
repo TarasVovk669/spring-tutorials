@@ -1,9 +1,8 @@
-package com.demo.security.springsecuritydemo.jwt;
+package com.demo.security.springsecuritydemo.jwt.bearer;
 
 import com.nimbusds.jose.*;
 import com.nimbusds.jwt.EncryptedJWT;
 import com.nimbusds.jwt.JWTClaimsSet;
-import com.nimbusds.jwt.SignedJWT;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

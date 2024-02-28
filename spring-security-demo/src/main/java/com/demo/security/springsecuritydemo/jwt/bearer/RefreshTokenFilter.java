@@ -1,13 +1,12 @@
-package com.demo.security.springsecuritydemo.jwt;
+package com.demo.security.springsecuritydemo.jwt.bearer;
 
-import com.demo.security.springsecuritydemo.source_of_user.DeactivatedToken;
-import com.demo.security.springsecuritydemo.source_of_user.DeactivatedTokenRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.HttpMethod;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
@@ -18,16 +17,20 @@ import org.springframework.security.web.util.matcher.RequestMatcher;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
-import java.time.ZoneId;
-import java.util.Date;
+import java.util.function.Function;
 
-public class JwtLogoutFilter extends OncePerRequestFilter {
 
-    private RequestMatcher requestMatcher = new AntPathRequestMatcher("/jwt/logout", HttpMethod.POST.name());
+public class RefreshTokenFilter extends OncePerRequestFilter {
+
+    private RequestMatcher requestMatcher = new AntPathRequestMatcher("/jwt/refresh", HttpMethod.POST.name());
 
     private SecurityContextRepository securityContextRepository = new RequestAttributeSecurityContextRepository();
 
-    private final DeactivatedTokenRepository deactivatedTokenRepository;
+    private Function<Token, Token> accessTokenFactory = new DefaultAccessTokenFactory();
+
+    private Function<Token, String> accessTokenStringSerializer = Object::toString;
+
+    private ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
@@ -38,12 +41,14 @@ public class JwtLogoutFilter extends OncePerRequestFilter {
                 if (context != null && context.getAuthentication() instanceof PreAuthenticatedAuthenticationToken &&
                         context.getAuthentication().getPrincipal() instanceof TokenUser user &&
                         context.getAuthentication().getAuthorities()
-                                .contains(new SimpleGrantedAuthority("JWT_LOGOUT"))) {
-                    deactivatedTokenRepository.save(new DeactivatedToken(
-                            user.getToken().id(),
-                            user.getToken().expiredAt().atZone(ZoneId.systemDefault()).toLocalDateTime())
-                    );
-                    response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+                                .contains(new SimpleGrantedAuthority("JWT_REFRESH"))) {
+                    var accessToken = this.accessTokenFactory.apply(user.getToken());
+
+                    response.setStatus(HttpServletResponse.SC_OK);
+                    response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+                    this.objectMapper.writeValue(response.getWriter(),
+                            new Tokens(this.accessTokenStringSerializer.apply(accessToken),
+                                    accessToken.expiredAt().toString(), null, null));
                     return;
                 }
             }
@@ -54,15 +59,23 @@ public class JwtLogoutFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
-    public JwtLogoutFilter(DeactivatedTokenRepository deactivatedTokenRepository) {
-        this.deactivatedTokenRepository = deactivatedTokenRepository;
-    }
-
     public void setRequestMatcher(RequestMatcher requestMatcher) {
         this.requestMatcher = requestMatcher;
     }
 
     public void setSecurityContextRepository(SecurityContextRepository securityContextRepository) {
         this.securityContextRepository = securityContextRepository;
+    }
+
+    public void setAccessTokenFactory(Function<Token, Token> accessTokenFactory) {
+        this.accessTokenFactory = accessTokenFactory;
+    }
+
+    public void setAccessTokenStringSerializer(Function<Token, String> accessTokenStringSerializer) {
+        this.accessTokenStringSerializer = accessTokenStringSerializer;
+    }
+
+    public void setObjectMapper(ObjectMapper objectMapper) {
+        this.objectMapper = objectMapper;
     }
 }

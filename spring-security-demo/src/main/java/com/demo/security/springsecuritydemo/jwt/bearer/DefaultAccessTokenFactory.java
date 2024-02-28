@@ -1,4 +1,4 @@
-package com.demo.security.springsecuritydemo.jwt;
+package com.demo.security.springsecuritydemo.jwt.bearer;
 
 import java.time.Duration;
 import java.time.Instant;

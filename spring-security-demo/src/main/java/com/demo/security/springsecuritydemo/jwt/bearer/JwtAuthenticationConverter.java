@@ -1,4 +1,4 @@
-package com.demo.security.springsecuritydemo.jwt;
+package com.demo.security.springsecuritydemo.jwt.bearer;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpHeaders;
