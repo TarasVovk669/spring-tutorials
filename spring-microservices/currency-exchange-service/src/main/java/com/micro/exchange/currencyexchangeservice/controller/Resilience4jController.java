@@ -43,7 +43,7 @@ public class Resilience4jController {
         return "Example_v1";
     }
 
-    @GetMapping("/circuit-example/{id}")
+    @GetMapping("/bulkhead/{id}")
     @Bulkhead(name = "bulkhead-example")
     public String exampleBulkhead(@PathVariable("id") Long id){
         log.info("Step into circuit method with id: {}", id);
