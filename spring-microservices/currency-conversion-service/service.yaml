@@ -1,0 +1,36 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    cloud.google.com/neg: '{"ingress":true}'
+  creationTimestamp: "2024-03-21T15:15:59Z"
+  finalizers:
+  - service.kubernetes.io/load-balancer-cleanup
+  labels:
+    app: currency-conversion
+  name: currency-conversion
+  namespace: default
+  resourceVersion: "4212243"
+  uid: 041c99a9-a819-4738-87d8-f3e254d1592d
+spec:
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 34.118.237.115
+  clusterIPs:
+  - 34.118.237.115
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 30713
+    port: 8100
+    protocol: TCP
+    targetPort: 8100
+  selector:
+    app: currency-conversion
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer: {}
