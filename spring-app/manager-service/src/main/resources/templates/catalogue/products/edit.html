@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${product.name}">Product Edit Page</title>
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+<a th:href="@{/catalogue/products/{productId}(productId=${product.id})}">Product view page</a>
+<h1>Editing product: [[${product.name}]]</h1>
+<div th:if="${errors}">
+    <h2>Errors</h2>
+    <ul>
+        <li th:each="error: ${errors}" th:text="${error}"></li>
+    </ul>
+</div>
+<form method="post" th:action="@{/catalogue/products/{productId}/edit(productId=${product.id})}">
+    <label>
+        Name:<br>
+        <input type="text" name="name" th:value="${payload != null ? payload.name : product.name}">
+    </label><br>
+    <label>
+        Description:<br>
+        <input type="text" name="description" th:value="${payload != null ? payload.description : product.description}">
+    </label><br>
+    <label>
+        Price:<br>
+        <input type="text" name="price" th:value="${payload != null ? payload.price : product.price}">
+    </label><br>
+    <button type="submit">Edit</button>
+</form>
+</body>
+</html>

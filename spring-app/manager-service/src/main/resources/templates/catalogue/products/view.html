@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${product.name}">Product Page</title>
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+<div class="product-container">
+    <h1 th:text="${product.name}">Product Name</h1>
+    <div class="product-details">
+        <p><strong>Id:</strong> <span th:text="${product.id}">ID</span></p>
+        <p><strong>Price:</strong> <span th:text="${product.price}">$100.00</span></p>
+        <p><strong>Description:</strong> <span th:text="${product.description}">Product Description</span></p>
+    </div>
+</div>
+
+<a th:href="@{/catalogue/products/{productId}/edit(productId=${product.id})}">Edit Product</a>
+<form method="post" th:action="@{/catalogue/products/{productId}/delete(productId=${product.id})}">
+    <button type="submit">Delete Product</button>
+</form>
+</body>
+</html>
