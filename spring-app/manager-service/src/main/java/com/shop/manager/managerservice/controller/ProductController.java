@@ -1,5 +1,6 @@
 package com.shop.manager.managerservice.controller;
 
+import com.shop.manager.managerservice.client.CatalogueClient;
 import com.shop.manager.managerservice.domain.Product;
 import com.shop.manager.managerservice.dto.ProductPayload;
 import com.shop.manager.managerservice.service.ProductService;
@@ -17,17 +18,17 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class ProductController {
 
-    private ProductService productService;
+    private CatalogueClient productService;
 
     @GetMapping("/list")
     public String getProducts(Model model) {
-        model.addAttribute("products", productService.getProducts());
+        model.addAttribute("products", productService.getAllProducts());
         return "catalogue/products/list";
     }
 
     @GetMapping("/{id}")
     public String getProduct(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("product", productService.getProduct(id));
+        model.addAttribute("product", productService.getProductById(id));
         return "catalogue/products/view";
     }
 
@@ -47,14 +48,14 @@ public class ProductController {
                     .toList());
             return "catalogue/products/new_product";
         } else {
-            Product product = this.productService.createProduct(payload.name(), payload.description(), payload.price());
+            Product product = this.productService.create(payload.name(), payload.description(), payload.price());
             return "redirect:/catalogue/products/%d".formatted(product.getId());
         }
     }
 
     @GetMapping("/{id}/edit")
     public String getProductEditPage(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("product", productService.getProduct(id));
+        model.addAttribute("product", productService.getProductById(id));
         return "catalogue/products/edit";
     }
 
@@ -66,18 +67,18 @@ public class ProductController {
         if (bindingResult.hasErrors()) {
             model.addAttribute("payload", payload);
             model.addAttribute("errors", bindingResult.getAllErrors().stream()
-                     .map(DefaultMessageSourceResolvable::getDefaultMessage)
+                    .map(DefaultMessageSourceResolvable::getDefaultMessage)
                     .toList());
             return "catalogue/products/edit";
         } else {
-            this.productService.updateProduct(id, payload.name(), payload.description(), payload.price());
+            this.productService.update(id, payload.name(), payload.description(), payload.price());
             return "redirect:/catalogue/products/%d".formatted(id);
         }
     }
 
     @PostMapping("{id}/delete")
     public String deleteProduct(@PathVariable("id") Long id) {
-        this.productService.deleteProduct(id);
+        this.productService.delete(id);
         return "redirect:/catalogue/products/list";
     }
 }

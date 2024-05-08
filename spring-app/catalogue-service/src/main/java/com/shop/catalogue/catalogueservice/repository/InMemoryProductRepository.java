@@ -29,6 +29,7 @@ public class InMemoryProductRepository implements ProductRepository {
 
     @Override
     public Product getProduct(Long id) {
+        System.out.println("id: "+ id);
         return products.stream().filter(product -> product.getId().equals(id)).findFirst().orElseThrow(() -> new NoSuchElementException("errors.product.not_found"));
     }
 
