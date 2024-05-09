@@ -1,0 +1,9 @@
+.serverTimeClass{
+    color: rebeccapurple;
+    font-style: italic;
+    font-size: large;
+}
+.error{
+    color: red;
+    font-size: large;
+}

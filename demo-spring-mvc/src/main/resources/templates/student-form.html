@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Form</title>
+</head>
+
+<body>
+
+<form th:action="@{/process-student}" th:object="${student}" method="post">
+
+    First Name: <input type="text" th:field="*{firstName}">
+    <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="error"></span>
+    <br><br>
+
+    Last Name: <input type="text" th:field="*{lastName}">
+    <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="error"></span>
+    <br><br>
+    Age: <input type="text" th:field="*{age}">
+    <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}" class="error"></span>
+    <br><br>
+    Index: <input type="text" th:field="*{index}">
+    <span th:if="${#fields.hasErrors('index')}" th:errors="*{index}" class="error"></span>
+    <br><br>
+    Country:
+    <label>
+        <select th:field="*{country}">
+            <option th:each="item : ${countries}"
+                    th:value="${item.code}"
+                    th:text="${item.name}">
+            </option>
+        </select>
+    </label>
+
+    <input type="submit" name="Submit">
+</form>
+
+</body>
+</html>
