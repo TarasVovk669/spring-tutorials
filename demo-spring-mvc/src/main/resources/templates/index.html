@@ -18,15 +18,21 @@
 </p>
 
 <br>
-<a th:href="@{/leaders}">Leadership page</a>
-<a th:href="@{/system}">System page</a>
+
+<div sec:authorize="hasRole('MANAGER')">
+    <a th:href="@{/leaders}">Leadership page</a>
+</div>
+<br>
+
+<div sec:authorize="hasRole('ADMIN')">
+    <a th:href="@{/system}">System page</a>
+</div>
 <br>
 
 <form action="" th:action="@{/logout}" method="post">
 
     <input type="submit" value="Logout">
 </form>
-
 
 
 </body>

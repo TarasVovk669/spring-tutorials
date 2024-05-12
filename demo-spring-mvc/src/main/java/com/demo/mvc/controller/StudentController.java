@@ -34,32 +34,35 @@ public class StudentController {
   @PostMapping("/process-student")
   public String processStudentForm(
       @Valid @ModelAttribute("student") Student student,
-      BindingResult bindingResult //result of validation
-  ) {
+      BindingResult bindingResult // result of validation
+      ) {
 
     if (bindingResult.hasErrors()) {
       return "student-form";
-
     }
     return "student-confirmation";
   }
 
   @GetMapping("/leaders")
-  public String leaders(){
+  public String leaders() {
     return "leaders";
   }
 
   @GetMapping("/system")
-  public String system(){
+  public String system() {
     return "system";
   }
 
-  //for trimming empty spaces
+  @GetMapping("/denied-page")
+  public String deniedPage() {
+    return "denied-page";
+  }
+
+
+  // for trimming empty spaces
   @InitBinder
-  public void fieldTrimBinder(WebDataBinder webDataBinder){
-
+  public void fieldTrimBinder(WebDataBinder webDataBinder) {
     StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
-
     webDataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
   }
 }
