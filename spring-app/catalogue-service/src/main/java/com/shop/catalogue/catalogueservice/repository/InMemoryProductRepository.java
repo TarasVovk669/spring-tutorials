@@ -1,3 +1,4 @@
+/*
 package com.shop.catalogue.catalogueservice.repository;
 
 import com.shop.catalogue.catalogueservice.domain.Product;
@@ -23,25 +24,26 @@ public class InMemoryProductRepository implements ProductRepository {
     }
 
     @Override
-    public List<Product> getProducts() {
+    public List<Product> findAll() {
         return products;
     }
 
     @Override
-    public Product getProduct(Long id) {
-        System.out.println("id: "+ id);
-        return products.stream().filter(product -> product.getId().equals(id)).findFirst().orElseThrow(() -> new NoSuchElementException("errors.product.not_found"));
+    public Optional<Product> findById(Long id) {
+        System.out.println("id: " + id);
+        Product product1 = products.stream().filter(product -> product.getId().equals(id)).findFirst().orElseThrow(() -> new NoSuchElementException("errors.product.not_found"));
+        return Optional.ofNullable(product1);
     }
 
     @Override
-    public Product createProduct(Product product) {
+    public Product save(Product product) {
         products.add(product);
         return product;
     }
 
     @Override
     public void updateProduct(Product product) {
-        Optional.ofNullable(getProduct(product.getId()))
+        findById(product.getId())
                 .ifPresentOrElse(p -> {
                     p.setName(product.getName());
                     p.setDescription(product.getDescription());
@@ -52,7 +54,8 @@ public class InMemoryProductRepository implements ProductRepository {
     }
 
     @Override
-    public void deleteProduct(Long id) {
+    public void deleteById(Long id) {
         products.removeIf(product -> product.getId().equals(id));
     }
 }
+*/

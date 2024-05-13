@@ -19,17 +19,22 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> getProducts() {
-        return productRepository.getProducts();
+        return productRepository.findAll();
     }
 
     @Override
     public Product getProduct(Long id) {
-        return productRepository.getProduct(id);
+        return productRepository.findById(id).orElseThrow();
+    }
+
+    @Override
+    public Product getProductCustomQ(Long id) {
+        return productRepository.getProductCustom(id);
     }
 
     @Override
     public Product createProduct(String name, String description, BigDecimal price) {
-        return productRepository.createProduct(Product.builder()
+        return productRepository.save(Product.builder()
                 .price(price)
                 .name(name)
                 .description(description)
@@ -40,7 +45,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void updateProduct(Long id, String name, String description, BigDecimal price) {
-        productRepository.updateProduct(Product.builder()
+        productRepository.save(Product.builder()
                 .price(price)
                 .name(name)
                 .description(description)
@@ -51,6 +56,6 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void deleteProduct(Long id) {
-        productRepository.deleteProduct(id);
+        productRepository.deleteById(id);
     }
 }

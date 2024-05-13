@@ -38,6 +38,11 @@ public class ProductController {
         return ResponseEntity.ok(this.productService.getProduct(id));
     }
 
+    @GetMapping("/{id}/custom")
+    public ResponseEntity<?> getProductCustom(@PathVariable Long id) {
+        return ResponseEntity.ok(this.productService.getProductCustomQ(id));
+    }
+
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void deleteProduct(@PathVariable Long id) {

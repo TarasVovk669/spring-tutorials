@@ -10,6 +10,7 @@ public interface ProductService {
     List<Product> getProducts();
 
     Product getProduct(Long id);
+    Product getProductCustomQ(Long id);
 
     Product createProduct(String name, String description, BigDecimal price);
 
