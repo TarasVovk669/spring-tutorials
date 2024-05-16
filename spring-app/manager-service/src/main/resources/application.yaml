@@ -1,9 +1,24 @@
 spring:
   application:
     name: manager-service
+  datasource:
+    username: user123
+    password: pass123
+    url: jdbc:postgresql://localhost:5432/manager
+  flyway:
+    schemas:
+      - public
+      - user_management
+    baseline-on-migrate: true
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
 server:
   port: 8081
 
 manager-service:
   catalog-service:
     url: http://localhost:8082
+    username: user123
+    password: pass123
