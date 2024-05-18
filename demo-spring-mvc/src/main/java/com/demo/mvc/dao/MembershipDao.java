@@ -2,7 +2,7 @@ package com.demo.mvc.dao;
 
 import com.demo.mvc.domain.Account;
 
-public interface AccountDao {
+public interface MembershipDao {
 
     void addAccount();
     void addAccount(Account account);

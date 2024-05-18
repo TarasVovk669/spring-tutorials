@@ -1,6 +1,8 @@
 package com.demo.mvc;
 
 import com.demo.mvc.dao.AccountDao;
+import com.demo.mvc.dao.MembershipDao;
+import com.demo.mvc.domain.Account;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,14 +16,17 @@ public class DemoSpringMvcApplication {
   }
 
   @Bean
-  public CommandLineRunner commandLineRunner(AccountDao accountDao) {
+  public CommandLineRunner commandLineRunner(AccountDao accountDao, MembershipDao membershipDao) {
     return runner -> {
-      demoTheBeforeAdvice(accountDao);
+      demoTheBeforeAdvice(accountDao, membershipDao);
     };
   }
 
-  private void demoTheBeforeAdvice(AccountDao accountDao) {
+  private void demoTheBeforeAdvice(AccountDao accountDao, MembershipDao membershipDao) {
 
-    accountDao.addAccount();
+    var acc1 = new Account(1L,"First");
+    var acc2 = new Account(1L,"Second");
+    accountDao.addAccount(acc1);
+    membershipDao.addAccount();
   }
 }
