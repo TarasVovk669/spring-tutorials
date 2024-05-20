@@ -4,7 +4,7 @@ spring:
   datasource:
     username: user123
     password: pass123
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://localhost:5432/catalog
 
   flyway:
     schemas:
@@ -15,6 +15,16 @@ spring:
     hibernate:
       ddl-auto: validate
     show-sql: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8083/realms/manager-app
 server:
   port: 8082
+logging:
+  level:
+    root: warn
+    org.springframework.security: trace
+
 

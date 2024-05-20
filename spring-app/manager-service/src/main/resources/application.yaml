@@ -36,6 +36,7 @@ server:
 
 manager-service:
   catalog-service:
+    registration-id: keycloak
     url: http://localhost:8082
     username: user123
     password: pass123

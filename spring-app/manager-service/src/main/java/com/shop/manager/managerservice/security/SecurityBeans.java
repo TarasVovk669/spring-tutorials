@@ -15,6 +15,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 @Configuration
 public class SecurityBeans {
@@ -25,6 +26,7 @@ public class SecurityBeans {
                 .authorizeHttpRequests(authorizeHttpRequests ->
                         authorizeHttpRequests.anyRequest().hasRole("MANAGER"))
                 .oauth2Login(Customizer.withDefaults())
+                .oauth2Client(Customizer.withDefaults())
                 .build();
     }
 
@@ -33,14 +35,17 @@ public class SecurityBeans {
         var oidcUS = new OidcUserService();
         return userRequest -> {
             OidcUser oidcUser = oidcUS.loadUser(userRequest);
-            List<GrantedAuthority> authorities = Optional.ofNullable(oidcUser.getClaimAsStringList("groups"))
-                    .orElseGet(List::of)
-                    .stream()
-                    .filter(x -> x.startsWith("ROLE_"))
-                    .map(SimpleGrantedAuthority::new)
-                    .map(GrantedAuthority.class::cast)
-                    .toList();
+            List<GrantedAuthority> authorities =
+                    Stream.concat(oidcUser.getAuthorities().stream(),
+                            Optional.ofNullable(oidcUser.getClaimAsStringList("groups"))
+                                    .orElseGet(List::of)
+                                    .stream()
+                                    .filter(x -> x.startsWith("ROLE_"))
+                                    .map(SimpleGrantedAuthority::new)
+                                    .map(GrantedAuthority.class::cast)).toList();
 
+
+            System.out.println(authorities);
             return new DefaultOidcUser(authorities, oidcUser.getIdToken(), oidcUser.getUserInfo());
         };
     }

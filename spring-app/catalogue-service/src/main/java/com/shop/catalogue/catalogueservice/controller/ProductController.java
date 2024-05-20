@@ -6,19 +6,16 @@ import com.shop.catalogue.catalogueservice.service.ProductService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.context.MessageSource;
-import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.security.Principal;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @RestController
 @AllArgsConstructor
@@ -29,7 +26,8 @@ public class ProductController {
     private final MessageSource messageSource;
 
     @GetMapping
-    public List<Product> getAllProducts() {
+    public List<Product> getAllProducts(Principal principal) {
+        System.out.println(principal);
         return this.productService.getProducts();
     }
 
