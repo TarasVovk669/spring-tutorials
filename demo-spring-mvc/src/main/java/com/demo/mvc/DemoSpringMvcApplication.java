@@ -27,6 +27,6 @@ public class DemoSpringMvcApplication {
     var acc1 = new Account(1L,"First");
     var acc2 = new Account(1L,"Second");
     accountDao.addAccount(acc1);
-    membershipDao.addAccount();
+    membershipDao.addAccount(acc2);
   }
 }
