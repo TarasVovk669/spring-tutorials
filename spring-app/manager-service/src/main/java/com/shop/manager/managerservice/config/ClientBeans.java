@@ -15,9 +15,7 @@ public class ClientBeans {
     public RestCatalogueClient restCatalogueClient(
             @Value("${manager-service.catalog-service.url}") String url,
             @Value("${manager-service.catalog-service.username}") String username,
-            @Value("${manager-service.catalog-service.password}") String password
-    ) {
-
+            @Value("${manager-service.catalog-service.password}") String password) {
         return new RestCatalogueClient(
                 RestClient.builder()
                         .baseUrl(url)

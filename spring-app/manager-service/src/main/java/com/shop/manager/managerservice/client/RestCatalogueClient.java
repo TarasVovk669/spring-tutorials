@@ -35,7 +35,7 @@ public class RestCatalogueClient implements CatalogueClient {
     public Product create(String name, String description, BigDecimal price) {
         try {
             return restClient.post()
-                    .uri("catalogue-api/products")
+                    .uri("/catalogue-api/products")
                     .contentType(MediaType.APPLICATION_JSON)
                     .body(new ProductPayload(null, name, description, price))
                     .retrieve()
