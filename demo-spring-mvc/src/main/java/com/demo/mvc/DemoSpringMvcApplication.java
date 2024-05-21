@@ -8,6 +8,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+
 @SpringBootApplication
 public class DemoSpringMvcApplication {
 
@@ -18,14 +20,31 @@ public class DemoSpringMvcApplication {
   @Bean
   public CommandLineRunner commandLineRunner(AccountDao accountDao, MembershipDao membershipDao) {
     return runner -> {
-      demoTheBeforeAdvice(accountDao, membershipDao);
+      // demoTheBeforeAdvice(accountDao, membershipDao);
+     // demoAfterAdvice(accountDao);
+     // demoAfterThrowing(accountDao);
+      demoAround(accountDao);
     };
+  }
+
+  private void demoAround(AccountDao accountDao) throws InterruptedException {
+    accountDao.getProcessDataAccounts();
+  }
+
+  private void demoAfterThrowing(AccountDao accountDao ) {
+    accountDao.getExceptionAccount();
+  }
+
+
+  private void demoAfterAdvice(AccountDao accountDao ) {
+    List<Account> accounts = accountDao.getAccounts();
+    System.out.println("main method: "+ accounts);
   }
 
   private void demoTheBeforeAdvice(AccountDao accountDao, MembershipDao membershipDao) {
 
-    var acc1 = new Account(1L,"First");
-    var acc2 = new Account(1L,"Second");
+    var acc1 = new Account(1L, "First");
+    var acc2 = new Account(1L, "Second");
     accountDao.addAccount(acc1);
     membershipDao.addAccount(acc2);
   }

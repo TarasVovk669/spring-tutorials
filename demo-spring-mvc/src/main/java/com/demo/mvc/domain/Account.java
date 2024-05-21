@@ -1,3 +1,17 @@
 package com.demo.mvc.domain;
 
-public record Account(Long id, String name) {}
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class Account {
+
+    private Long id;
+
+    private String name;
+}
