@@ -20,4 +20,20 @@ public class AroundAopConfiguration {
     System.out.println("Delta time: " + (end - start));
     return obj;
   }
+
+  @Around("execution(* com.demo.mvc.dao.*.getProcessDataAccountsException(..))")
+  public Object logAfterReturningAccountsException(ProceedingJoinPoint proceedingJoinPoint)
+          throws Throwable {
+    Object obj = null;
+    try{
+    obj = proceedingJoinPoint.proceed();
+
+    }catch (Exception e){
+      System.out.println("Handle and swallow exception: "+ e.getMessage());
+
+      obj = "Swallow exception";
+    }
+
+    return obj;
+  }
 }

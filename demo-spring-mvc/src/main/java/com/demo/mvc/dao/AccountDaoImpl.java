@@ -8,8 +8,6 @@ import java.util.List;
 @Repository
 public class AccountDaoImpl implements AccountDao {
 
-
-
   public void addAccount() {
     System.out.println(getClass() + ": DOING MY DB WORK: ADDING ACCOUNT");
   }
@@ -22,11 +20,10 @@ public class AccountDaoImpl implements AccountDao {
   @Override
   public List<Account> getAccounts() {
     return List.of(
-            new Account(1L,"name1"),
-            new Account(2L,"name2"),
-            new Account(3L,"name3"),
-            new Account(4L,"name4")
-    );
+        new Account(1L, "name1"),
+        new Account(2L, "name2"),
+        new Account(3L, "name3"),
+        new Account(4L, "name4"));
   }
 
   @Override
@@ -43,5 +40,14 @@ public class AccountDaoImpl implements AccountDao {
     Thread.sleep(1500);
 
     return "data";
+  }
+
+  @Override
+  public String getProcessDataAccountsException() throws InterruptedException {
+    System.out.println("Enter method pda with exception");
+
+    Thread.sleep(1500);
+
+    throw new RuntimeException("Error in method");
   }
 }

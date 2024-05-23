@@ -14,4 +14,6 @@ public interface AccountDao {
     void getExceptionAccount();
 
     String getProcessDataAccounts() throws InterruptedException;
+
+    String getProcessDataAccountsException() throws InterruptedException;
 }
