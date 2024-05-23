@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:tc:postgresql:16:///catalog?TC_DAEMON=true
+    username: user123
+    password: pass123
