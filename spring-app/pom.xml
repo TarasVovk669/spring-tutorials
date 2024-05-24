@@ -10,6 +10,8 @@
   <modules>
     <module>manager-service</module>
     <module>catalogue-service</module>
+    <module>customer-app</module>
+    <module>catalogue-app-flux</module>
   </modules>
 
   <properties>

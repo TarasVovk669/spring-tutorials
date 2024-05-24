@@ -1,0 +1,11 @@
+
+spring:
+  application:
+    name: customer-app
+
+customer-app:
+  services:
+    catalogue:
+      url: http://localhost:8082
+server:
+  port: 8085

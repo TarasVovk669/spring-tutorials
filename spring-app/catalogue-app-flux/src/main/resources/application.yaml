@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: catalogue-service
+  datasource:
+    username: user123
+    password: pass123
+    url: jdbc:postgresql://localhost:5432/catalog
+
+  flyway:
+    schemas:
+      - public
+      - catalogue
+    baseline-on-migrate: true
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+server:
+  port: 8084
+logging:
+  level:
+    root: warn
+    org.springframework.security: trace
+
+

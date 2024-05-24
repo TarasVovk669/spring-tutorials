@@ -43,3 +43,9 @@ build/
 /catalogue-service/mvnw
 /catalogue-service/mvnw.cmd
 /catalogue-service/.mvn/
+/customer-app/mvnw
+/customer-app/mvnw.cmd
+/customer-app/.mvn/
+/catalogue-app-flux/mvnw
+/catalogue-app-flux/mvnw.cmd
+/catalogue-app-flux/.mvn/

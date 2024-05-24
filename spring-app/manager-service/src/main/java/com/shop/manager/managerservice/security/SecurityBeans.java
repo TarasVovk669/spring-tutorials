@@ -44,8 +44,6 @@ public class SecurityBeans {
                                     .map(SimpleGrantedAuthority::new)
                                     .map(GrantedAuthority.class::cast)).toList();
 
-
-            System.out.println(authorities);
             return new DefaultOidcUser(authorities, oidcUser.getIdToken(), oidcUser.getUserInfo());
         };
     }
