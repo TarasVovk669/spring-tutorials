@@ -35,7 +35,6 @@ public class ClientRequestInterceptor implements ClientHttpRequestInterceptor {
                     OAuth2AuthorizeRequest.withClientRegistrationId(this.registrationId)
                             .principal(this.strategy.getContext().getAuthentication())
                             .build());
-            System.out.println(authorizedClient.getAccessToken().getTokenValue());
             request.getHeaders().setBearerAuth(authorizedClient.getAccessToken().getTokenValue());
         }
 

@@ -19,7 +19,7 @@
     <tr th:each="product : ${products}">
         <td th:text="${product.id}">1</td>
         <td>
-            <a th:href="@{/catalogue/products/{productId}(productId=${product.id})}"
+            <a th:href="@{/customer/products/{productId}(productId=${product.id})}"
                th:text="${product.name}"></a>
         </td>
         <td th:text="${product.price}">10.00</td>
@@ -27,6 +27,6 @@
     </tr>
     </tbody>
 </table>
-<a th:href="@{/catalogue/products/create}">+ Create product</a>
+<a th:href="@{/customer/products/create}">+ Create product</a>
 </body>
 </html>

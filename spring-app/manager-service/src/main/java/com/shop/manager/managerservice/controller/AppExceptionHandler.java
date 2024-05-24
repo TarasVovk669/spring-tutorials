@@ -24,7 +24,6 @@ public class AppExceptionHandler {
         response.setStatus(404);
         model.addAttribute("error", message);
 
-        System.out.println(message);
         return "error/404";
     }
 }

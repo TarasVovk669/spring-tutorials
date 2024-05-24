@@ -6,6 +6,6 @@ spring:
 customer-app:
   services:
     catalogue:
-      url: http://localhost:8082
+      url: http://localhost:8084
 server:
   port: 8085

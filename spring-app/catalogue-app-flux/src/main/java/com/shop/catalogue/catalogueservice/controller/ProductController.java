@@ -26,8 +26,7 @@ public class ProductController {
     private final MessageSource messageSource;
 
     @GetMapping
-    public List<Product> getAllProducts(Principal principal) {
-        System.out.println(principal);
+    public List<Product> getAllProducts() {
         return this.productService.getProducts();
     }
 

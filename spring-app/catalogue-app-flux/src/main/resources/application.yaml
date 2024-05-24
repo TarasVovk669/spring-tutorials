@@ -1,16 +1,10 @@
 spring:
   application:
-    name: catalogue-service
+    name: catalogue-service-flux
   datasource:
     username: user123
     password: pass123
     url: jdbc:postgresql://localhost:5432/catalog
-
-  flyway:
-    schemas:
-      - public
-      - catalogue
-    baseline-on-migrate: true
   jpa:
     hibernate:
       ddl-auto: validate
