@@ -1,13 +1,17 @@
 package com.reactive.webflux.demo;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
 import com.reactive.webflux.demo.dto.MathResponseDto;
+import com.reactive.webflux.demo.dto.MultiplyRequestDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.reactive.function.client.WebClientResponseException;
+import org.springframework.web.util.UriComponentsBuilder;
 import reactor.test.StepVerifier;
+
+import java.net.URI;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class WebClientTest extends BaseTest {
 
@@ -39,6 +43,73 @@ public class WebClientTest extends BaseTest {
     StepVerifier.create(mathResponseDtoMono)
         .expectNextMatches(r -> r.getResult() == 25)
         .verifyComplete();
+  }
 
+  @Test
+  public void fluxTableTest() {
+    var mathResponseDtoMono =
+        webClient
+            .get()
+            .uri("/reactive-math/table/{input}/stream", 5)
+            .retrieve()
+            .bodyToFlux(MathResponseDto.class);
+
+    StepVerifier.create(mathResponseDtoMono).expectNextCount(10).verifyComplete();
+  }
+
+  @Test
+  public void monoPostRequestMultiplyTest() {
+    var mathResponseDto =
+        webClient
+            .post()
+            .uri("/reactive-math/multiply")
+            .headers(h -> h.set("some-key", "some-val"))
+            .bodyValue(MultiplyRequestDto.builder().one(5).two(10).build())
+            .retrieve()
+            .bodyToMono(MathResponseDto.class);
+
+    StepVerifier.create(mathResponseDto)
+        .expectNextMatches(resp -> resp.getResult().equals(50))
+        .verifyComplete();
+  }
+
+  @Test
+  public void monoBadRequestTest() {
+    var mathResponseDto =
+        webClient
+            .get()
+            .uri("/reactive-math/square/{input}/validated", 5)
+            .retrieve()
+            .bodyToMono(MathResponseDto.class);
+
+    StepVerifier.create(mathResponseDto).verifyError(WebClientResponseException.BadRequest.class);
+  }
+
+  // @Test
+  public void monoQueryParamTest() {
+    /*URI uri =
+    UriComponentsBuilder.fromUriString(
+            "http://localhost:8080/example?count={count}&page={page}")
+        .build(10, 20);*/
+
+    webClient
+        .get()
+        // .uri(uri)
+        .uri(b -> b.path("example").query("count={count}&page={page}").build(10, 20))
+        .retrieve()
+        .bodyToMono(MathResponseDto.class);
+  }
+
+  @Test
+  public void monoAttributeTest() {
+    var mathResponseDtoMono =
+        webClient
+            .get()
+            .uri("/reactive-math/square/{input}", 5)
+            .attribute("auth", "basic")
+            .retrieve()
+            .bodyToMono(MathResponseDto.class);
+
+    StepVerifier.create(mathResponseDtoMono).expectNextCount(1).verifyComplete();
   }
 }
