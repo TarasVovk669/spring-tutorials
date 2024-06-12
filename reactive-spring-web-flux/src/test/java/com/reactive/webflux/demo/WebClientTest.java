@@ -1,17 +1,14 @@
 package com.reactive.webflux.demo;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import com.reactive.webflux.demo.dto.MathResponseDto;
 import com.reactive.webflux.demo.dto.MultiplyRequestDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
-import org.springframework.web.util.UriComponentsBuilder;
 import reactor.test.StepVerifier;
-
-import java.net.URI;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class WebClientTest extends BaseTest {
 
