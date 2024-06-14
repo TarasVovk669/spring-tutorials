@@ -1,12 +1,11 @@
 package com.reactive.webflux.demo.dto;
 
+import static java.time.ZoneOffset.UTC;
+
+import java.time.LocalDateTime;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
-import java.time.LocalDateTime;
-
-import static java.time.ZoneOffset.UTC;
 
 @Data
 @ToString

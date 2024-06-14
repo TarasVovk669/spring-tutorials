@@ -2,13 +2,12 @@ package com.reactive.webflux.demo.configuration;
 
 import com.reactive.webflux.demo.dto.InvalidResponse;
 import com.reactive.webflux.demo.exception.InvalidInputNumberException;
+import java.util.function.BiFunction;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.server.*;
 import reactor.core.publisher.Mono;
-
-import java.util.function.BiFunction;
 
 @Configuration
 @RequiredArgsConstructor

@@ -1,14 +1,9 @@
 package com.reactive.webflux.demo.service;
 
-import static com.reactive.webflux.demo.util.SleepUtils.sleep;
 
 import com.reactive.webflux.demo.dto.MathResponseDto;
-
-import java.time.Duration;
-import java.util.List;
-import java.util.stream.IntStream;
-
 import com.reactive.webflux.demo.dto.MultiplyRequestDto;
+import java.time.Duration;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

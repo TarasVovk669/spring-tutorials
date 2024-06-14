@@ -1,12 +1,11 @@
 package com.reactive.webflux.demo.service;
 
-import com.reactive.webflux.demo.dto.MathResponseDto;
-import org.springframework.stereotype.Service;
+import static com.reactive.webflux.demo.util.SleepUtils.sleep;
 
+import com.reactive.webflux.demo.dto.MathResponseDto;
 import java.util.List;
 import java.util.stream.IntStream;
-
-import static com.reactive.webflux.demo.util.SleepUtils.sleep;
+import org.springframework.stereotype.Service;
 
 @Service
 public class MathService {
