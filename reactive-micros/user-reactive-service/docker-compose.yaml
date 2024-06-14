@@ -1,0 +1,23 @@
+version: "3"
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=user123
+      - POSTGRES_PASSWORD=pass123
+      - POSTGRES_DB=userdb
+    volumes:
+      - ./docker-volume/db:/var/lib/postgresql/data
+    ports:
+      - 5438:5432
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@user123.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    volumes:
+      - ./docker-volume/pgadmin:/var/lib/pgadmin
+    ports:
+      - 9000:80

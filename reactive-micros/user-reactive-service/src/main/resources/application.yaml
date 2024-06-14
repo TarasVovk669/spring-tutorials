@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: user-reactive-service
+  r2dbc:
+    password: pass123
+    url: r2dbc:postgresql://localhost:5438/userdb
+    username: user123
+
+server:
+  port: 8092
+
