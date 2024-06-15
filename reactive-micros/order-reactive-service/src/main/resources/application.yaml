@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: order-reactive-service
+services:
+  user-service:
+    url: http://locahost:8092/users
+  product-service:
+    url: http://locahost:8091/api/products
+
+server:
+  port: 8989
