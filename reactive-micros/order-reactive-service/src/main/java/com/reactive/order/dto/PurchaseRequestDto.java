@@ -6,5 +6,5 @@ import lombok.Data;
 public class PurchaseRequestDto {
 
     private Long userId;
-    private Long productId;
+    private String productId;
 }

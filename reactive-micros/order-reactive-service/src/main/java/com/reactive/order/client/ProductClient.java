@@ -15,7 +15,7 @@ public class ProductClient {
     this.webClient = WebClient.builder().baseUrl(url).build();
   }
 
-  public Mono<ProductDto> getProductById(Long productId) {
-    return webClient.get().uri("{id}", productId).retrieve().bodyToMono(ProductDto.class);
+  public Mono<ProductDto> getProductById(String productId) {
+    return webClient.get().uri("/{productId}", productId).retrieve().bodyToMono(ProductDto.class);
   }
 }

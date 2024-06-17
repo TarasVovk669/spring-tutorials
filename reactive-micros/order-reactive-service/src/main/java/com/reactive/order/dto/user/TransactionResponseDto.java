@@ -1,6 +1,5 @@
 package com.reactive.order.dto.user;
 
-import com.reactive.user.userreactiveservice.dto.TransactionStatus;
 import lombok.Builder;
 import lombok.Data;
 
