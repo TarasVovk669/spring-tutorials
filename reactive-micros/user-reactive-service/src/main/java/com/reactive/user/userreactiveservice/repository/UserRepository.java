@@ -12,6 +12,6 @@ import reactor.core.publisher.Mono;
 public interface UserRepository extends ReactiveCrudRepository<User,Long> {
 
     @Modifying
-    @Query("update t_user u set u.balance = u.balance - :amount where u.id = :userId and u.balance >= :amount")
-    Mono<Boolean> updateUserBalance(@Param("userId") Long userId, @Param("amount") Integer amount);
+    @Query("UPDATE t_user SET balance = (balance - :amount) WHERE id = :userId AND balance >= :amount")
+    Mono<Integer> updateUserBalance(@Param("userId") Long userId, @Param("amount") Integer amount);
 }

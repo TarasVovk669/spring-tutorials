@@ -9,7 +9,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/transactions")
+@RequestMapping("/users/transactions")
 @RequiredArgsConstructor
 public class UserTransactionController {
 

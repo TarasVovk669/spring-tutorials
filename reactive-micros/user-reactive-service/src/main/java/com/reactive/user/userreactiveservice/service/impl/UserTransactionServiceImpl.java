@@ -23,7 +23,7 @@ public class UserTransactionServiceImpl implements UserTransactionService {
   public Mono<TransactionResponseDto> create(TransactionRequestDto requestDto) {
     return this.userRepository
         .updateUserBalance(requestDto.getUserId(), requestDto.getAmount())
-        .filter(Boolean::booleanValue)
+        .filter(x -> x > 0)
         .map(b -> DtoUtil.toEntity(requestDto))
         .flatMap(this.transactionRepository::save)
         .map(ut -> DtoUtil.toDto(requestDto, TransactionStatus.APPROVED))
