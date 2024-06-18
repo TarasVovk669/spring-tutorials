@@ -56,8 +56,8 @@ public class ProductController {
     return productService.delete(id);
   }
 
-  @GetMapping(value = "/stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-  public Flux<ProductDto> streamProducts(){
-    return flux;
+  @GetMapping(value = "/stream/{max-price}", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+  public Flux<ProductDto> streamProducts(@PathVariable("max-price") Integer maxPrice) {
+    return flux.filter(p -> p.getPrice() <= maxPrice);
   }
 }
