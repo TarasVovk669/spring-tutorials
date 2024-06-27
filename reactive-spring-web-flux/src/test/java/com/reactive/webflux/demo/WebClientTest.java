@@ -2,8 +2,8 @@ package com.reactive.webflux.demo;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.reactive.webflux.demo.dto.MathResponseDto;
-import com.reactive.webflux.demo.dto.MultiplyRequestDto;
+import com.reactive.webflux.demo.base.dto.MathResponseDto;
+import com.reactive.webflux.demo.base.dto.MultiplyRequestDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.reactive.function.client.WebClient;

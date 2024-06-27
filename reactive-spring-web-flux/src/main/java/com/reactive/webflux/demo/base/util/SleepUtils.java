@@ -1,4 +1,4 @@
-package com.reactive.webflux.demo.util;
+package com.reactive.webflux.demo.base.util;
 
 public class SleepUtils {
 

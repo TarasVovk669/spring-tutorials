@@ -1,7 +1,8 @@
-package com.reactive.webflux.demo.configuration;
+package com.reactive.webflux.demo.base.configuration;
 
-import com.reactive.webflux.demo.dto.InvalidResponse;
-import com.reactive.webflux.demo.exception.InvalidInputNumberException;
+import com.reactive.webflux.demo.base.dto.InvalidResponse;
+import com.reactive.webflux.demo.base.exception.InvalidInputNumberException;
+
 import java.util.function.BiFunction;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

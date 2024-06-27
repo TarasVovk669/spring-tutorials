@@ -1,6 +1,6 @@
 package com.reactive.webflux.demo.webtestclient;
 
-import com.reactive.webflux.demo.dto.MathResponseDto;
+import com.reactive.webflux.demo.base.dto.MathResponseDto;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,8 +1,8 @@
-package com.reactive.webflux.demo.service;
+package com.reactive.webflux.demo.base.service;
 
-import static com.reactive.webflux.demo.util.SleepUtils.sleep;
+import static com.reactive.webflux.demo.base.util.SleepUtils.sleep;
 
-import com.reactive.webflux.demo.dto.MathResponseDto;
+import com.reactive.webflux.demo.base.dto.MathResponseDto;
 import java.util.List;
 import java.util.stream.IntStream;
 import org.springframework.stereotype.Service;

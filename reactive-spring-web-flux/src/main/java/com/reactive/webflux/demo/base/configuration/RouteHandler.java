@@ -1,9 +1,9 @@
-package com.reactive.webflux.demo.configuration;
+package com.reactive.webflux.demo.base.configuration;
 
-import com.reactive.webflux.demo.dto.MathResponseDto;
-import com.reactive.webflux.demo.dto.MultiplyRequestDto;
-import com.reactive.webflux.demo.exception.InvalidInputNumberException;
-import com.reactive.webflux.demo.service.ReactiveMathService;
+import com.reactive.webflux.demo.base.dto.MathResponseDto;
+import com.reactive.webflux.demo.base.dto.MultiplyRequestDto;
+import com.reactive.webflux.demo.base.exception.InvalidInputNumberException;
+import com.reactive.webflux.demo.base.service.ReactiveMathService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;

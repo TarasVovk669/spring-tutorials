@@ -1,6 +1,6 @@
-package com.reactive.webflux.demo.exception;
+package com.reactive.webflux.demo.base.exception;
 
-import com.reactive.webflux.demo.dto.InvalidResponse;
+import com.reactive.webflux.demo.base.dto.InvalidResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

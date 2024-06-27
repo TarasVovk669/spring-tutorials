@@ -1,7 +1,7 @@
-package com.reactive.webflux.demo.controller;
+package com.reactive.webflux.demo.base.controller;
 
-import com.reactive.webflux.demo.dto.MathResponseDto;
-import com.reactive.webflux.demo.service.MathService;
+import com.reactive.webflux.demo.base.dto.MathResponseDto;
+import com.reactive.webflux.demo.base.service.MathService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

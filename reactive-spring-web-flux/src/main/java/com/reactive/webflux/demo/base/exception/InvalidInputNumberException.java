@@ -1,4 +1,4 @@
-package com.reactive.webflux.demo.exception;
+package com.reactive.webflux.demo.base.exception;
 
 import lombok.Data;
 

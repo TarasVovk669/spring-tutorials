@@ -1,4 +1,4 @@
-package com.reactive.webflux.demo.dto;
+package com.reactive.webflux.demo.base.dto;
 
 import static java.time.ZoneOffset.UTC;
 

@@ -1,9 +1,9 @@
 package com.reactive.webflux.demo.webtestclient;
 
-import com.reactive.webflux.demo.controller.ReactiveMathController;
-import com.reactive.webflux.demo.dto.MathResponseDto;
-import com.reactive.webflux.demo.dto.MultiplyRequestDto;
-import com.reactive.webflux.demo.service.ReactiveMathService;
+import com.reactive.webflux.demo.base.controller.ReactiveMathController;
+import com.reactive.webflux.demo.base.dto.MathResponseDto;
+import com.reactive.webflux.demo.base.dto.MultiplyRequestDto;
+import com.reactive.webflux.demo.base.service.ReactiveMathService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

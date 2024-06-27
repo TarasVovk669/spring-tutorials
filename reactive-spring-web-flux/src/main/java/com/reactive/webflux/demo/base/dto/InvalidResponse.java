@@ -1,4 +1,4 @@
-package com.reactive.webflux.demo.dto;
+package com.reactive.webflux.demo.base.dto;
 
 import lombok.Builder;
 import lombok.Data;

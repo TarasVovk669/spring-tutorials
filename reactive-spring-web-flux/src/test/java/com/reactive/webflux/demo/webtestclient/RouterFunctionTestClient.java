@@ -1,12 +1,8 @@
 package com.reactive.webflux.demo.webtestclient;
 
-import com.reactive.webflux.demo.configuration.RouteConfig;
-import com.reactive.webflux.demo.configuration.RouteHandler;
-import com.reactive.webflux.demo.controller.ReactiveMathController;
-import com.reactive.webflux.demo.dto.MathResponseDto;
-import com.reactive.webflux.demo.dto.MultiplyRequestDto;
-import com.reactive.webflux.demo.service.ReactiveMathService;
-import java.time.Duration;
+import com.reactive.webflux.demo.base.configuration.RouteConfig;
+import com.reactive.webflux.demo.base.configuration.RouteHandler;
+import com.reactive.webflux.demo.base.dto.MathResponseDto;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -20,8 +16,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.web.reactive.function.server.ServerResponse;
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 
 @WebFluxTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
