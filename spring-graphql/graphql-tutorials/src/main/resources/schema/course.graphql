@@ -19,6 +19,8 @@ type Query{
     problemLatestList: [Problem!]
     itemSearch(filter: SearchItemFilter): [SearchableItem]
     problemDetail(id: ID!): Problem
+
+    makeTourRequest(request: TourOperatorRequest): [TourElement]
 }
 
 type Mutation{
@@ -32,7 +34,6 @@ type Mutation{
     problemCreate(problem: ProblemCreateInput): ProblemResponse!
     solutionCreate(solution: SolutionCreateInput): SolutionResponse!
     solutionVote(vote: SolutionVoteInput): SolutionResponse!
-
 
 }
 

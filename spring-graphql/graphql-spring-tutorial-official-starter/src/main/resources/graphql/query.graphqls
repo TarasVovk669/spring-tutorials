@@ -22,6 +22,7 @@ on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
 directive @Range(min : Int = 0, max : Int = 2147483647, message : String = "graphql.validation.Range.message") on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
 
 type Query{
+    makeTourRequest(request: TourOperatorRequest): [TourElement]
     bankAccount(id: ID!): BankAccount
     bankAccountSelectionSet(id: ID!): BankAccount
     bankAccounts( page: Int, size: Int): BankAccountConnection @connection(for: "BankAccount")
