@@ -1,14 +1,22 @@
 package com.reactive.webflux.demo.sec03_route_f.config;
 
+import com.reactive.webflux.demo.sec01.domain.Product;
 import com.reactive.webflux.demo.sec02.exceptions.ApplicationExceptions;
 import com.reactive.webflux.demo.sec03_route_f.dto.CustomerDto;
 import com.reactive.webflux.demo.sec03_route_f.service.CustomerService;
 import com.reactive.webflux.demo.sec03_route_f.validator.RequestValidator;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.Map;
 
 @Service
 public class RequestHandler {
@@ -20,6 +28,8 @@ public class RequestHandler {
   }
 
   public Mono<ServerResponse> allCustomers(ServerRequest request) {
+
+    ServerResponse.ok().body("", Product.class);
     Flux<CustomerDto> allCustomers = customerService.getAllCustomers();
 
     return allCustomers.as(flux -> ServerResponse.ok().body(flux, CustomerDto.class));

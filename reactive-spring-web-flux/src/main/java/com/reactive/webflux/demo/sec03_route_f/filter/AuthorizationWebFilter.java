@@ -9,8 +9,8 @@ import org.springframework.web.server.WebFilter;
 import org.springframework.web.server.WebFilterChain;
 import reactor.core.publisher.Mono;
 
-@Order(2)
-@Service
+//@Order(2)
+//@Service
 public class AuthorizationWebFilter implements WebFilter {
 
     @Override

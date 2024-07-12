@@ -10,8 +10,8 @@ import org.springframework.web.server.WebFilter;
 import org.springframework.web.server.WebFilterChain;
 import reactor.core.publisher.Mono;
 
-@Order(1)
-@Service
+//@Order(1)
+//@Service
 public class AuthenticationWebFilter implements WebFilter {
 
     private static final Map<String, Category> TOKEN_CATEGORY_MAP = Map.of(
