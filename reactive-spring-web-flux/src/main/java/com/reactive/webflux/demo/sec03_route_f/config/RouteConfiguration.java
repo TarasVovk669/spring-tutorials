@@ -46,15 +46,6 @@ public class RouteConfiguration {
   }
 
   @Bean
-  public RouterFunction<ServerResponse> route22() {
-    return RouterFunctions.route()
-        .GET("/customers", this.requestHandler::allCustomers)
-        .GET("/customers/{id}", this.requestHandler::getOneCustomer)
-        .GET("/customers/paginated", this.requestHandler::allCustomers)
-        .build();
-  }
-
-  @Bean
   public RouterFunction<ServerResponse> route(CustomerService customerService) {
     return RouterFunctions.route()
         .GET(
