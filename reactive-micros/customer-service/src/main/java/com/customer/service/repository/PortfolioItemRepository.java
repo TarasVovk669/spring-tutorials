@@ -1,6 +1,6 @@
 package com.customer.service.repository;
 
-import com.customer.service.domain.Customer;
+
 import com.customer.service.domain.PortfolioItem;
 import com.customer.service.domain.Ticker;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
